@@ -20,7 +20,7 @@ build-windows: export GOARCH=amd64
 build-windows: export GO111MODULE=on
 build-windows: export GOPROXY=$(MOD_PROXY_URL)
 build-windows:
-	go build -mod=vendor -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
+	go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/windows/amd64/chartmuseum cmd/chartmuseum/main.go  # windows
 
 build-linux: export GOOS=linux
@@ -29,7 +29,7 @@ build-linux: export CGO_ENABLED=0
 build-linux: export GO111MODULE=on
 build-linux: export GOPROXY=$(MOD_PROXY_URL)
 build-linux:
-	go build -mod=vendor -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
+	go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/linux/amd64/chartmuseum cmd/chartmuseum/main.go  # linux
 
 build-mac: export GOOS=darwin
@@ -38,7 +38,7 @@ build-mac: export CGO_ENABLED=0
 build-mac: export GO111MODULE=on
 build-mac: export GOPROXY=$(MOD_PROXY_URL)
 build-mac:
-	go build -mod=vendor -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
+	go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/darwin/amd64/chartmuseum cmd/chartmuseum/main.go # mac osx
 
 .PHONY: clean
